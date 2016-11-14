@@ -10,9 +10,9 @@ import os
 import sys
 import util
 
-db_connection_string = os.environ['DOBJOBS_CONNECTION']
-csv_file = sys.argv[1]
-# csv_file = 'path/to/DOB_Job_Application_Filings.csv'
+csv_file = sys.argv[1] # csv_file = 'path/to/DOB_Job_Application_Filings.csv'
+db_connection_string = sys.argv[2]  # os.environ['DOBJOBS_CONNECTION']
+
 
 conn = psycopg2.connect(db_connection_string)
 cur = conn.cursor()
