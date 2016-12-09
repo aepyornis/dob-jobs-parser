@@ -37,8 +37,8 @@ def insert_row(row):
         try:
             row[key] = util.type_cast(key, row[key], lookup)
         except ValueError as e:
-            print(key + "," + row[key])
-            print(e)
+            # print(key + "," + row[key])
+            # print(e)
             global errors
             errors += 1
             row[key] = None

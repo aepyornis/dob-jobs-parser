@@ -9,7 +9,7 @@ create index on dobjobs (LatestActionDate DESC NULLS LAST);
 create index on dobjobs (LatestActionDate DESC);
  
 --latestactiondate + lat/lng
-create index on dobjobs (lat_coord, lng_coord, LatestActionDate DESC NULLS LAST);
+-- create index on dobjobs (lat_coord, lng_coord, LatestActionDate DESC NULLS LAST);
 
 -- jobtype
 create index on dobjobs (JobType);
