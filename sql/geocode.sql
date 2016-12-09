@@ -9,12 +9,12 @@ alter table dobjobs add column lat_coord numeric;
 alter table dobjobs add column lng_coord numeric;
 
 update dobjobs
-       set lat_coord = pluto16v2.lat,
-       lng_coord = pluto16v2.lng
+       set lat_coord = pluto_16v2.lat,
+       lng_coord = pluto_16v2.lng
 from
-   pluto16v2
+   pluto_16v2
 where
-   pluto16v2.bbl = dobjobs.bbl;
+   pluto_16v2.bbl = dobjobs.bbl;
 
 COMMIT;
 

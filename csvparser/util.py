@@ -14,7 +14,7 @@ def boro_to_code(boro):
     elif b == 'STATEN ISLAND':
         code = '5'
     else:
-        print('Incorrect borough: ' + boro)
+        # print('Incorrect borough: ' + boro)
         code = '0'
     return code
 
@@ -25,7 +25,7 @@ def lot_length_helper(lot):
     elif len(lot) < 5:
         return lot.zfill(4)
     else:
-        print(lot + " is more than 5 chars long!")
+        # print(lot + " is more than 5 chars long!")
         return '0000'
 
 
