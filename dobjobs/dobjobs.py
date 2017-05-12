@@ -7,12 +7,12 @@ import csv
 import datetime
 import os
 import sys
-import util
+from dobjobs import util
 import psycopg2
 
 def create_table(cur):
     cur.execute('DROP TABLE IF EXISTS dobjobs')
-    with open('schema.sql', 'r') as f:
+    with open(os.path.dirname(__file__) + '/schema.sql', 'r') as f:
         sql = f.read()
         cur.execute(sql)
 

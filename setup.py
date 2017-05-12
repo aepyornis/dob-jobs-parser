@@ -8,5 +8,6 @@ setup(name='dobjobs-parser',
       author='ziggy',
       author_email='ziggy@elephant-bird.net',
       url='https://github.com/aepyornis/dob-jobs-parser',
-      packages=['dobjobs']
+      packages=['dobjobs'],
+      package_data={'dobjobs': ['*.sql'] }
      )
