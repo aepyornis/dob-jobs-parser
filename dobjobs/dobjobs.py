@@ -3,13 +3,12 @@ python3
 
 Inserts dob application files csv data (from nyc open) into postgres
 """
-import psycopg2
 import csv
 import datetime
 import os
 import sys
 import util
-
+import psycopg2
 
 def create_table(cur):
     cur.execute('DROP TABLE IF EXISTS dobjobs')

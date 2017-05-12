@@ -16,12 +16,7 @@ Set connection settings env variable for the parser:
 ``` export DOBJOBS_CONNECTION='connection string' ```
 sample string: "dbname=dobjobs user=ziggy"
 
-create python3 virtual evnironment & install dependencies:
-```
-pyvenv venv
-source venv/bin/activate
-pip install psycopg2
-```
+create python3 virtual evnironment & install dependencies: ``` make ```
 
 run the parser: ``` python3 csvparser/db_dobjobs.py /path/to/jobs_fillings.csv ```
 
