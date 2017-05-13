@@ -5,7 +5,7 @@ venv:
 	python3 -m venv venv	
 
 .PHONY: test
-test:
+test: setup
 	./venv/bin/pytest ./test
 
 .PHONY: setup
