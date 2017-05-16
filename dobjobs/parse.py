@@ -2,6 +2,7 @@ import csv
 import datetime
 import os
 import sys
+import argparse
 import dobjobs.bbl as bbl
 import dobjobs.db as db
 
@@ -121,7 +122,6 @@ def to_db(infile, **kwargs):
 
 
 def main():
-    import argparse
     parser = argparse.ArgumentParser(description='clean and parse department of buildings jobs. Writes cleaned csv to stdout unless option --psql is invoked.')
     parser.add_argument('file', help='path to job filings csv')
     parser.add_argument("--psql", help="Insert data into postgres", action="store_true")
