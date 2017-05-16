@@ -2,4 +2,6 @@ __pycache__
 venv/
 build/
 .cache/
-job_filings.csv
+*.csv
+*.egg-info
+dist/
