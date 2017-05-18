@@ -79,7 +79,7 @@ def read_csv(csv_path):
     """ reads csv, parses fields, returns generator of dictionaries """
     columns = headers()
     lookup = type_lookup()
-    with open(csv_path, 'r') as f:
+    with open(csv_path, 'r', encoding='utf-8') as f:
         next(f) # skip header row
         csv_reader = csv.reader(f)
         for line in csv_reader:
@@ -104,7 +104,7 @@ def to_db(infile, **kwargs):
     """ copys to db """
     tmp_file = '__tmp.csv'
     # save csv to tmp file
-    with open(tmp_file, 'w') as f:
+    with open(tmp_file, 'w', encoding='utf-8') as f:
         write_csv(infile, f)
 
     conn = db.connection(**kwargs)
@@ -113,7 +113,7 @@ def to_db(infile, **kwargs):
     cols = headers_with_bbl()
 
     # use postgres COPY to copy tmp csv to database
-    with open(tmp_file, 'r') as f:
+    with open(tmp_file, 'r', encoding='utf-8') as f:
         cur.copy_expert(db.copy_string(cols), f)
 
     conn.commit()
