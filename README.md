@@ -6,7 +6,7 @@ Builds a database of DOB data. Also see: https://github.com/aepyornis/DOB-Jobs
 Download the data: 
 
 ```
-wget https://data.cityofnewyork.us/api/views/ic3t-wcy2/rows.csv?accessType=DOWNLOAD -O job_fillings.csv
+wget https://data.cityofnewyork.us/api/views/ic3t-wcy2/rows.csv?accessType=DOWNLOAD -O job_filings.csv
 ```
 
 Create a psql database: ``` createdb dobjobs ```
@@ -30,7 +30,7 @@ execute_sql_cmd () {
 
 Create python3 virtual evnironment & install dependencies: ``` make ```
 
-Import the data: ``` ./venv/bin/dobjobs  --psql -H <HOST> -U <USER> -P <PASSWORD> -D <DATABASE> /path/to/job_fillings.csv ```
+Import the data: ``` ./venv/bin/dobjobs  --psql -H <HOST> -U <USER> -P <PASSWORD> -D <DATABASE> /path/to/job_filings.csv ```
 
 If you have the table 'pluto_16v2', add lat & lng to dobjobs. Otherwise skip this step:
 
