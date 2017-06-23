@@ -1,16 +1,10 @@
--- create pg_trgm extension
-CREATE EXTENSION IF NOT EXISTS pg_trgm;
-
 -- bbl
 create index on dobjobs (bbl);
 
 -- Latest Action Date 
 create index on dobjobs (LatestActionDate DESC NULLS LAST);
-create index on dobjobs (LatestActionDate DESC);
+create index on dobjobs (LatestActionDate DESC);	
  
---latestactiondate + lat/lng
--- create index on dobjobs (lat_coord, lng_coord, LatestActionDate DESC NULLS LAST);
-
 -- jobtype
 create index on dobjobs (JobType);
 -- job status
@@ -24,10 +18,21 @@ create index on dobjobs (ProposedNoofStories);
 -- FULL TEXT search columns
 
 -- owner businessname
-create index on dobjobs USING gin (OwnersBusinessName gin_trgm_ops);
+ALTER TABLE dobjobs ADD COLUMN ownersbusinessname_tsvector tsvector;
+UPDATE dobjobs SET ownersbusinessname_tsvector = to_tsvector('english', ownersbusinessname);
+CREATE INDEX ownersbusinessname_tsvector_idx ON dobjbos USING GIN (ownersbusinessname_tsvector);
+
 -- owner name
-create index on dobjobs USING gin (ownername gin_trgm_ops);
+ALTER TABLE dobjobs ADD COLUMN ownername_tsvector tsvector;
+UPDATE dobjobs SET ownername_tsvector = to_tsvector('english', ownername);
+CREATE INDEX ownername_tsvector_idx ON dobjbos USING GIN (ownername_tsvector);
+
 --job description
-create index on dobjobs USING gin (JobDescription gin_trgm_ops);
+ALTER TABLE dobjobs ADD COLUMN jobdescription_tsvector tsvector;
+UPDATE dobjobs SET jobdescription_tsvector = to_tsvector('english', JobDescription));
+CREATE INDEX jobdescription_tsvector_idx ON dobjbos USING GIN (jobdescription_tsvector);
+
 --applicant name
-create index on dobjobs USING gin (applicantname gin_trgm_ops);
+ALTER TABLE dobjobs ADD COLUMN applicantname_tsvector tsvector;
+UPDATE dobjobs SET applicantname_tsvector = to_tsvector('english', applicantname);
+CREATE INDEX applicantname_tsvector_idx ON dobjbos USING GIN (applicantname_tsvector);
